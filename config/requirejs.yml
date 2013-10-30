@@ -1,0 +1,12 @@
+paths:
+  jquery: 'http://code.jquery.com/jquery-1.10.2.min'
+  epochchart: 'jquery.epochchart'
+
+shim:
+  highcharts: 
+    exports: 'Highcharts'
+    deps: 
+      - 'jquery'
+  epochchart:
+    deps: 
+      - 'jquery'

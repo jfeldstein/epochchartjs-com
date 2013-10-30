@@ -1,5 +1,5 @@
 class ChartController < InheritedResources::Base
-  def show
+  def embed
     @chart = Chart.find params[:id]
     render layout: false
   end
