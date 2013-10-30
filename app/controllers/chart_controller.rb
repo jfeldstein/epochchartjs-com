@@ -1,4 +1,2 @@
-class ChartController < ApplicationController
-  def new
-  end
+class ChartController < InheritedResources::Base
 end
