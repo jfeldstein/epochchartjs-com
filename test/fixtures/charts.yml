@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  owner_name: MyString
+  owner_email: MyString
+  calendar_url: MyString
+  title: MyString
+  data_url: MyString
+  keen_io_url: MyString
+
+two:
+  owner_name: MyString
+  owner_email: MyString
+  calendar_url: MyString
+  title: MyString
+  data_url: MyString
+  keen_io_url: MyString
