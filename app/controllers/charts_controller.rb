@@ -10,4 +10,8 @@ class ChartsController < InheritedResources::Base
     @demo_chart = Chart.find 1
     @new_chart = Chart.new
   end
+
+  def howto
+
+  end
 end

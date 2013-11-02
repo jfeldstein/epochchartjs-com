@@ -1,0 +1,79 @@
+.row 
+  .small-12.centered.columns
+    %h3#data-formats Formatting Data For Hosted Embeds
+
+    %p Data for your hosted embed needs to be served up from your endpoint in the following format. Dates should be Unix timestamps.  
+
+    %blockquote
+      %pre
+        :preserve
+          [
+            [date, value],
+            [date, value],
+            ...
+          ]
+
+    %p 
+      For example:
+      = link_to "(live example)", datum_url(1)
+
+    %blockquote
+      %pre
+        :preserve
+          [
+            [1382827634000,132],
+            [1382914034000,112],
+            [1383000434000,130],
+            [1383086834000,165],
+            [1383173234000,140],
+            [1383259634000,148],
+            [1383346034000,134]
+          ]
+
+
+    %h3#event-data-formats Two Ways to Serve Event Data for Hosted Embeds
+
+    %p You can supply event markers to your hosted embed in the following two ways: 
+
+    %ol
+      %li 
+        Link your embed to an endpoint serving a 
+        = link_to "properly formatted JSON response.", howto_url(anchor: 'events-as-json')
+      %li 
+        Link your embed to an 
+        = link_to "ical calendar export,", howto_url(anchor: 'events-from-ics')
+        such as that from a Google Calendar. 
+
+    %h3#events-as-json Serving Event Data as JSON for a Hosted Embed
+
+    %p To host your own events data, serve it up in the following format. Dates are Unix timestamps. 
+
+    %blockquote
+      %pre
+        :preserve
+          [
+            [date, event_description],
+            [date, event_description],
+            ...
+          ]
+
+    %p 
+      For example:
+      = link_to "(live example)", calendar_data_url(1)
+
+    %blockquote
+      %pre
+        :preserve
+          [
+            [1382914034000, "Implemented new onboarding funnel"],
+            [1383000434000, "Hired new sales guy"]
+          ]
+
+    %h3#events-from-ics Managing Events Data from a Google Calendar
+
+    %p Linking your embed to a Google Calendar's ical export lets you update the calendar to add or change the events shown on your chart.
+
+    %p 
+      Simply create a new google calendar and use it's private iCal export URL as the url for your new hosted embed. Access the iCal url for your new calendar by clicking the green 
+      = image_tag "icalbutton.png"
+      button at the bottom of the settings page. 
