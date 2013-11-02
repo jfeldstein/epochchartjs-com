@@ -1,8 +1,8 @@
 EpochChart::Application.routes.draw do
-  resources :chart, :data
+  resources :charts, :data
 
-  match "/chart/:id/embed" => 'chart#embed', as: "embed"
+  match "/chart/:id/embed" => 'charts#embed', as: "embed"
   match "/data/:id/calendar" => 'data#calendar'
 
-  root :to => 'chart#new'
+  root :to => 'charts#landing'
 end

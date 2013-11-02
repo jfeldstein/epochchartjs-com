@@ -1,0 +1,36 @@
+.row
+  .small-12.small-centered.columns
+
+    %h1 
+      EpochChart.js
+      %small Data with context
+
+    .row.header
+      .small-5.columns 
+        %iframe.demo-frame{src: embed_url(@demo_chart)}
+
+      .small-6.columns.small-offset-1
+        %h2
+          %small
+            Annotate your data with real-world events. 
+            %br 
+            See what created change and growth.
+
+        = link_to "Build a Chart", new_chart_url, class: "button"
+        = link_to "Get the Code", github_url, class: 'button secondary'
+
+    .row
+      .small-12.columns
+        %h3 As simple as... 
+
+        %blockquote
+          %pre
+            :preserve
+              
+              var lines = [{
+                name: "Monthly Active Users",
+                data:  [[1259114255000, 2], [1259200655000, 2.25], [1259287055000, 5], ...]
+              }];
+              var markers = [[1259114255000, "New Onboarding Funnel"], [1259200655000, "Added Retention Emails"], ... ];
+
+              $('#chart').epochchart(lines, markers);

@@ -1,0 +1,35 @@
+.row
+  .small-6.columns
+
+    %h3 Make your own hosted embed:
+    = form_for @new_chart do |f|
+
+      = f.label :title, "Name Your Chart:"
+      = f.text_field :title, placeholder: "eg. Weekly Active Users"
+
+      = f.label :data_url, "Pull Line Data From"
+      = f.text_field :data_url, placeholder: "URL to data in JSON"
+
+      = f.label :calendar_url, "Pull Markers From"
+      = f.text_field :calendar_url, placeholder: "URL to data in JSON or iCal Export"
+
+      .row
+        .small-6.columns
+          = f.label :owner_name, "Your Name"
+          = f.text_field :owner_name
+
+        .small-6.columns
+          = f.label :owner_email, "Your Email"
+          = f.text_field :owner_email
+
+      = f.button "Create This Chart"
+
+  .small-6.columns
+
+    %p 
+      EpochChart requires data and markers in 
+      = link_to "specific formats.", "https://github.com/jfeldstein/jQuery.EpochChart.js"
+    %p 
+      The Markers URL can also be an 
+      = link_to "iCal export", "https://github.com/jfeldstein/jQuery.EpochChart.js"
+      which lets you manage markers by editing events in the calendar.
