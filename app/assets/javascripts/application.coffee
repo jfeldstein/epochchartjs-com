@@ -19,3 +19,4 @@ require ['jquery', 'highcharts', 'epochchart'], ($) ->
         
         chart.epochchart lineData, events,
           marker: "url(/marker.png)"
+$(function(){ $(document).foundation(); });
