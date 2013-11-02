@@ -1,8 +1,8 @@
-require ['jquery', 'highcharts', 'epochchart', 'foundation'], ($) ->
+require ['jquery', 'highcharts', 'epochchart'], ($) ->
 
   # Start up the app once the DOM is ready
   $ ->
-    $(document).foundation()
+    $(document).foundation() if $.fn.foundation?
 
     $('.chart').each ->
       chart = $(@)

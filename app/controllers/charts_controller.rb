@@ -1,7 +1,7 @@
 class ChartsController < InheritedResources::Base
   def embed
     @chart = Chart.find params[:id]
-    render layout: false
+    render layout: "embed"
   end
 
   def landing

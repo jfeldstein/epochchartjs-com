@@ -8,6 +8,10 @@ class DataController < ApplicationController
       [
         5.days.ago.to_time.to_i*1000,
         "Techcrunch write-up"
+      ],
+      [
+        3.days.ago.to_time.to_i*1000,
+        "Hired new sales guy"
       ]
     ]
 
@@ -18,25 +22,25 @@ class DataController < ApplicationController
     data = [
       [ 
         7.days.ago.to_time.to_i*1000,
-        132
+        120
       ],[
         6.days.ago.to_time.to_i*1000,
         112
       ],[
         5.days.ago.to_time.to_i*1000,
-        130
+        115
       ],[
         4.days.ago.to_time.to_i*1000,
         165
       ],[
         3.days.ago.to_time.to_i*1000,
-        140
+        125
       ],[
         2.days.ago.to_time.to_i*1000,
-        148
+        130
       ],[
         1.days.ago.to_time.to_i*1000,
-        134
+        142
       ]]
 
     render json: data
