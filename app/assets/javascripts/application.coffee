@@ -1,7 +1,9 @@
-require ['jquery', 'highcharts', 'epochchart'], ($) ->
+require ['jquery', 'highcharts', 'epochchart', 'foundation'], ($) ->
 
   # Start up the app once the DOM is ready
   $ ->
+    $(document).foundation()
+
     $('.chart').each ->
       chart = $(@)
 
@@ -19,4 +21,3 @@ require ['jquery', 'highcharts', 'epochchart'], ($) ->
         
         chart.epochchart lineData, events,
           marker: "url(/marker.png)"
-$(function(){ $(document).foundation(); });
