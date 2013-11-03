@@ -10,3 +10,5 @@ shim:
   epochchart:
     deps: 
       - 'jquery'
+  jquery:
+    exports: '$'
