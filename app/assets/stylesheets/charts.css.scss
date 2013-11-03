@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "foundation/variables";
+@import "foundation/components/global";
+@import "foundation/components/alert-boxes";
+
 .calendar-help {
   color: rgb(43, 166, 203);
   border-bottom: 0;
@@ -14,4 +18,15 @@
 
 .row.header {
   margin-bottom: 30px;
+}
+
+#main-chart {
+  height: 250px;
+  width: 100%;
+}
+
+#useful-footer {
+  @include alert($bg: $secondary-color);
+
+  margin-top: 50px;
 }
