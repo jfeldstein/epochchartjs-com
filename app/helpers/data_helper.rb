@@ -29,4 +29,31 @@ module DataHelper
       ]
     ]
   end
+
+  def dummy_line_data
+    [
+      [ 
+        7.days.ago.to_time.to_i*1000,
+        120
+      ],[
+        6.days.ago.to_time.to_i*1000,
+        112
+      ],[
+        5.days.ago.to_time.to_i*1000,
+        115
+      ],[
+        4.days.ago.to_time.to_i*1000,
+        165
+      ],[
+        3.days.ago.to_time.to_i*1000,
+        125
+      ],[
+        2.days.ago.to_time.to_i*1000,
+        130
+      ],[
+        1.days.ago.to_time.to_i*1000,
+        142
+      ]
+    ]
+  end
 end

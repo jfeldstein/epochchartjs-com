@@ -18,30 +18,17 @@ class DataController < ApplicationController
   end
 
   def show
-    data = [
-      [ 
-        7.days.ago.to_time.to_i*1000,
-        120
-      ],[
-        6.days.ago.to_time.to_i*1000,
-        112
-      ],[
-        5.days.ago.to_time.to_i*1000,
-        115
-      ],[
-        4.days.ago.to_time.to_i*1000,
-        165
-      ],[
-        3.days.ago.to_time.to_i*1000,
-        125
-      ],[
-        2.days.ago.to_time.to_i*1000,
-        130
-      ],[
-        1.days.ago.to_time.to_i*1000,
-        142
-      ]]
+    # Hack to keep the demo data up to date
+    if params[:id].to_i == 1
+      render json: dummy_line_data and return
+    end
 
-    render json: data
+    # Everyone else actually gets parsed
+    @chart = Chart.find params[:id]
+
+    # Eventually, we can do things like pull in data from existing services, like MP or Keen, so 
+    # users can build directly on top of their existing analytics stacks, vs having to open
+    # their own endpoints. 
+    redirect_to @chart.data_url and return
   end
 end
