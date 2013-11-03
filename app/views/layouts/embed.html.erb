@@ -5,7 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title><%= yield :title %></title>
   <%= stylesheet_link_tag    "embed", :media => "all" %>
-  <%= requirejs_include_tag "application" %>
+  <%=
+    requirejs_include_tag("application") do |controller|
+      { 'main' => 'application' }
+    end
+  %>
   <%= csrf_meta_tags %>
 </head>
 <body>
