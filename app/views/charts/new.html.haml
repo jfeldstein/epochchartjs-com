@@ -1,18 +1,36 @@
 .row
+  
+  .small-12.large-5.large-offset-1.columns
+    %h3 Download the Javascript:
+    
+    %p EpochChart.js is available as a jQuery library for you to use in your own projects. It's built on top of Highcharts, giving it a wealth of customization options.
+
+    = link_to "Download the Code", "https://github.com/jfeldstein/jQuery.EpochChart.js", class: "button secondary"
+
   .small-12.large-6.columns
 
-    %h3 Make a hosted embed:
+    %h3 Or, make a hosted embed:
+
+    %p 
+      Plot data from 
+      = link_to "Keen.io,", howto_url(anchor: 'data-from-keen')
+      tagged with events from 
+      = link_to "Google Calendar.", howto_url(anchor: 'events-from-ics')
+    %p
+      If your data is stored on your own server, you also have the option to host your own
+      = link_to "JSON endpoints.", howto_url(anchor: 'data-from-json') 
+
     = form_for @chart do |f|
       = f.error_messages
 
       = f.label :title, "Name Your Chart:"
       = f.text_field :title, placeholder: "eg. Weekly Active Users"
 
-      = f.label :data_url, "Pull Line Data From"
-      = f.text_field :data_url, placeholder: "URL to data in JSON"
+      = f.label :data_url, "Pull Data From"
+      = f.text_field :data_url, placeholder: "URL to a Keen.io Saved Query, or JSON"
 
       = f.label :calendar_url, "Pull Markers From"
-      = f.text_field :calendar_url, placeholder: "URL to data in JSON or iCal Export"
+      = f.text_field :calendar_url, placeholder: "URL to iCal Export from a Google Calendar, or JSON"
 
       .row
         .small-6.columns
@@ -23,20 +41,6 @@
           = f.label :owner_email, "Your Email"
           = f.text_field :owner_email
 
-      %p 
-        EpochChart requires data and markers in 
-        = link_to "specific formats.", howto_url(anchor: 'data-formats')
-      %p 
-        The Markers URL can also be an 
-        = link_to "iCal export", howto_url(anchor: 'events-from-ics')
-        which lets you manage markers by editing events in the calendar.
-
       = f.button "Create this Chart"
 
-  .small-12.large-5.large-offset-1.columns
-    %h3 Or, download and customize:
-    
-    %p Besides these hosted embeds, EpochChart.js is available as a jQuery library for you to use in your own projects. It's built on top of Highcharts, giving it a wealth of customization options.
-
-    = link_to "Download the Code", "https://github.com/jfeldstein/jQuery.EpochChart.js", class: "button secondary"
 

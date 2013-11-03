@@ -1,6 +1,51 @@
 .row 
   .small-12.centered.columns
-    %h3#data-formats Formatting Data For Hosted Embeds
+    %h3#data-formats Supported Data Sources For Hosted Embeds
+
+    %p 
+      The 
+      = link_to 'jQuery.EpochChart.js', github_url
+      library itself can use data from any source, as long as it's properly formatted.
+
+    %p However, if you want this app to build a hosted embed for you, you'll need to supply data from one of two sources:
+
+    %ol
+      %li 
+        Analytics data from:
+        %ul
+          %li Keen.io
+          %li 
+            %em 
+              Other services available by 
+              = link_to 'request.', twitter_url
+      %li 
+        A JSON endpoint, serving raw data in the 
+        = link_to "expected format.", howto_url(anchor: 'data-from-json')
+    
+    %h4#data-from-keen Using your Analytics Data in a Hosted Embed:
+
+    %h6 From Keen.io:
+    %ol
+      %li
+        Paste the 
+        = link_to "Series ", 'https://keen.io/docs/data-analysis/series/'
+        or 
+        = link_to "Saved Query", 'https://keen.io/docs/data-analysis/saved-queries/#get-the-results-of-a-saved-query'
+        url from your Keen.io account that returns the data you'd like to use. 
+      %li
+        Be sure to include your 
+        = link_to "read_key", 'https://keen.io/docs/data-analysis/authentication/#query-string-param'
+        so we can authenticate.
+
+    %h6 From other services:
+
+    %p Ideally, we'd pull data from other analytics services, such as Google Analytics or Mixpanel. Since I don't use these services in my own apps, I have yet to implement them. 
+
+    %p 
+      If you'd like to be able to pull from a 3rd party analytics service besides one already supported, tweet me a request at
+      = link_to '@jfeldstein', twitter_url
+
+    %h4#data-from-json Hosting your own JSON endpoint:
 
     %p Data for your hosted embed needs to be served up from your endpoint in the following format. Dates should be Unix timestamps.  
 
@@ -31,20 +76,42 @@
           ]
 
 
-    %h3#event-data-formats Two Ways to Serve Event Data for Hosted Embeds
+    %h3#event-data-formats Supported Event/Marker Sources for Hosted Embeds
 
-    %p You can supply event markers to your hosted embed in the following two ways: 
+    %p 
+      The 
+      = link_to 'jQuery.EpochChart.js', github_url
+      library itself doesn't care where you store the data for your markers, only that they're properly formatted when passed in.
+
+    %p However, if you want this app to provide a hosted embed, markers will need to be supplied from one of two sources: 
 
     %ol
-      %li 
-        Link your embed to an endpoint serving a 
-        = link_to "properly formatted JSON response.", howto_url(anchor: 'events-as-json')
       %li 
         Link your embed to an 
         = link_to "ical calendar export,", howto_url(anchor: 'events-from-ics')
         such as that from a Google Calendar. 
+      %li 
+        Link your embed to an endpoint serving a 
+        = link_to "properly formatted JSON response.", howto_url(anchor: 'events-as-json')
 
-    %h3#events-as-json Serving Event Data as JSON for a Hosted Embed
+    %h4#events-from-ics Managing Events Data from a Google Calendar
+
+    %p Linking your embed to a Google Calendar's ical export lets you add or change the events shown on your chart by simply updating the calendar.
+
+    %ol
+      %li
+        Create a new 
+        = link_to 'google calendar.', 'https://www.google.com/calendar/'
+      %li 
+        Find it's private iCal export URL by clicking the green 
+        = image_tag "icalbutton.png"
+        button at the bottom of the settings page. 
+      %li 
+        Use the iCal url as the Marker Url for your new hosted embed.
+      %li 
+        Add markers to your chart by updating your calendar.
+
+    %h4#events-as-json Hosting your own JSON endpoint of event/marker data
 
     %p To host your own events data, serve it up in the following format. Dates are Unix timestamps. 
 
@@ -69,11 +136,3 @@
             [1383000434000, "Hired new sales guy"]
           ]
 
-    %h3#events-from-ics Managing Events Data from a Google Calendar
-
-    %p Linking your embed to a Google Calendar's ical export lets you update the calendar to add or change the events shown on your chart.
-
-    %p 
-      Simply create a new google calendar and use it's private iCal export URL as the url for your new hosted embed. Access the iCal url for your new calendar by clicking the green 
-      = image_tag "icalbutton.png"
-      button at the bottom of the settings page. 

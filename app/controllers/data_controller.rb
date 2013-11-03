@@ -26,9 +26,10 @@ class DataController < ApplicationController
     # Everyone else actually gets parsed
     @chart = Chart.find params[:id]
 
-    # Eventually, we can do things like pull in data from existing services, like MP or Keen, so 
-    # users can build directly on top of their existing analytics stacks, vs having to open
-    # their own endpoints. 
-    redirect_to @chart.data_url and return
+    if we_parse_this_service(@chart.data_url)
+      render json: line_data(@chart.data_url) and return
+    else
+      redirect_to @chart.data_url and return
+    end
   end
 end

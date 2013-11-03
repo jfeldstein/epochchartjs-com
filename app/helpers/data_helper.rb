@@ -1,3 +1,5 @@
+require 'open-uri'
+
 module DataHelper
   def ical_data(url)
     cal_file = open(URI.parse(url)) { |f| f.read }
@@ -15,6 +17,23 @@ module DataHelper
     end
 
     data
+  end
+
+  def line_data(url)
+    case URI::parse(url).host
+    when 'api.keen.io'
+      json = ''
+      open(url) { |io| json = io.read }
+      keen_data = JSON.parse(json)
+      return keen_data['result'].map do |r|
+        [
+          DateTime.strptime(r['timeframe']['start'], '%Y-%m-%dT%H:%M:%S').to_time.to_i*1000,
+          r['value']
+        ]
+      end
+    else
+      raise "Unsupported line_data host"
+    end
   end
 
   def dummy_cal_data
@@ -55,5 +74,13 @@ module DataHelper
         142
       ]
     ]
+  end
+
+  def we_parse_this_service(url)
+    hosts = ['api.keen.io']
+
+    uri = URI::parse(url)
+
+    hosts.include? uri.host
   end
 end
