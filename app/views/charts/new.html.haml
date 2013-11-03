@@ -3,6 +3,7 @@
 
     %h3 Make a hosted embed:
     = form_for @chart do |f|
+      = f.error_messages
 
       = f.label :title, "Name Your Chart:"
       = f.text_field :title, placeholder: "eg. Weekly Active Users"
