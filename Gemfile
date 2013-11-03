@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'requirejs-rails'
 gem 'inherited_resources'
 gem 'haml-rails'
+gem 'icalendar'
 
 
 # Gems used only for assets and not required

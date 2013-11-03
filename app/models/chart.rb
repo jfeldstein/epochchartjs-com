@@ -18,4 +18,8 @@ class Chart < ActiveRecord::Base
   validates :calendar_url, :title, presence: true
   validates :calendar_url, :data_url, url: true
 
+  def calendar_url_is_ical?
+    not /\.ics$/.match(self.calendar_url).nil?
+  end
+
 end

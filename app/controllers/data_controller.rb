@@ -1,21 +1,20 @@
 class DataController < ApplicationController
-  def index
-
-  end 
+  include DataHelper
 
   def calendar
-    data = [
-      [
-        5.days.ago.to_time.to_i*1000,
-        "Techcrunch write-up"
-      ],
-      [
-        3.days.ago.to_time.to_i*1000,
-        "Hired new sales guy"
-      ]
-    ]
+    # Hack to keep the demo data up to date
+    if params[:id].to_i == 1
+      render json: dummy_cal_data and return
+    end
 
-    render json: data
+    # Everyone else actually gets parsed
+    @chart = Chart.find params[:id]
+
+    if @chart.calendar_url_is_ical?
+      render json: ical_data(@chart.calendar_url) and return
+    else
+      redirect_to @chart.calendar_url and return
+    end
   end
 
   def show
