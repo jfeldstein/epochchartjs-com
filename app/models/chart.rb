@@ -15,7 +15,7 @@ end
 class Chart < ActiveRecord::Base
   attr_accessible :calendar_url, :data_url, :owner_email, :owner_name, :title
 
-  validates :calendar_url, :owner_name, :owner_email, :title, presence: true
+  validates :calendar_url, :title, presence: true
   validates :calendar_url, :data_url, url: true
 
 end
