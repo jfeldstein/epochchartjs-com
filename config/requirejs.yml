@@ -1,5 +1,5 @@
 paths:
-  jquery: 'http://code.jquery.com/jquery-1.10.2.min'
+  jquery: 'jquery.min'
   epochchart: 'jquery.epochchart'
 
 shim:
@@ -10,5 +10,3 @@ shim:
   epochchart:
     deps: 
       - 'jquery'
-  jquery:
-    exports: '$'
